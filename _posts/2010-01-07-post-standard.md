@@ -98,18 +98,18 @@ COPY . .
 6. Build the React app for production.
 
 ````Dockerfile
-  RUN npm run build
+RUN npm run build
 ````
 
 7. Expose the port on which your frontend app will run.
 
 ````Dockerfile
-  EXPOSE 3000
+EXPOSE 3000
 ````
 
 8. Serve the built React app using a simple web server. 
 
 ```Dockerfile
-  CMD ["npx", "serve", "-s", "build"]
+CMD ["npx", "serve", "-s", "build"]
 ````
 
