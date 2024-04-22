@@ -33,18 +33,19 @@ The client folder contains the ReactJs frontend code and the server folder conta
 
 ### 2. Create a Dockerfile for each of the services.
 
+
 #### 2.1 Dockerfile for ReactJs server at path client/Dockerfile
   
 Before creating the Dockerfile for the ReactJs server, make sure you have a build script in your package.json file. If not, add the following script to your package.json file:
 
-  ```json
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  }
-  ```
+```json
+"scripts": {
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "react-scripts test",
+"eject": "react-scripts eject"
+}
+```
 
 Next, create a ```Dockerfile``` in the client folder with the following content
 
@@ -73,12 +74,4 @@ Next, create a ```Dockerfile``` in the client folder with the following content
   # Serve the built React app using a simple web server
   CMD ["npx", "serve", "-s", "build"]
 
-  ```
-
-```ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-```
+  ````
