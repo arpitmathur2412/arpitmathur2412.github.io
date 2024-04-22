@@ -1,5 +1,5 @@
 ---
-title: "Post: Standard"
+title: "Deploying a Full Stack Web Application using Docker"
 excerpt_separator: "<!--more-->"
 categories:
   - Blog
@@ -11,9 +11,9 @@ tags:
 
 Hey everyone, In this blog post we will be deploying a full stack web application using Docker. The application will be split into three microservices. 
 
-### 1. Frontend Container of ReactJs 
-### 2. Backend Container of NodeJs
-### 3. Database Container of MongoDB
+##### 1. Frontend Container of ReactJs 
+##### 2. Backend Container of NodeJs
+##### 3. Database Container of MongoDB
 
 
 ### 1. Create a full stack application or use an existing one built on ReactJs, NodeJs and MongoDB.
