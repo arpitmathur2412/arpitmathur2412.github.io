@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Hey eveyone, glad you found me! I write blogs here on Cloud Computing and AI/ML. Feel free to read.
 twitter_username: username
 github_username: arpitmathur2412
-minimal_mistakes_skin: mint
+minimal_mistakes_skin: neon
 search: true
 
 # Build settings
