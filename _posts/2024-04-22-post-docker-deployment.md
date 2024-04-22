@@ -1,6 +1,6 @@
 ---
 title: "Deploying a three-tier web application with Docker"
-date: 2024-04-2T20:38:30-04:00
+date: 2024-04-22T20:38:30-04:00
 categories:
   - blog
 tags:
