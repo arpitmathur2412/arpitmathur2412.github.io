@@ -147,3 +147,46 @@ CMD ["npx", "serve", "-s", "build"]
 <br>
 
 
+**Now we will build the Docker image from the created Dockerfile and push it to the Docker Hub repository, follow the below steps carefully**
+
+1. Build the Docker image using the following command:
+  
+  ```bash 
+  docker build -t <DockerHubUsername>/<RepositoryName>:client .
+  ```  
+  <br>
+  ![docker build for client](/assets/images/client-build.png)  
+  <br>
+
+  replace <DockerHubUsername> with your Docker Hub username and <RepositoryName> with the repository name of the created repository in step 2.   
+  <br>
+  This command will build the Docker image for the ReactJs server using the Dockerfile in the client folder.
+
+2. Lets check if the image is created successfully by running the following command:
+  
+  ```bash 
+  docker images
+  ```  
+  <br>
+  ![docker images](/assets/images/docker_images.png)  
+  <br>
+  This command will list all the Docker images on your system. You should see the Docker image for the ReactJs server in the list.
+
+3. Now we will see if the image is running successfully by running the following command:
+  
+  ```bash 
+  docker run -p 3000:3000 <DockerHubUsername>/<RepositoryName>:client
+  ```  
+  <br>
+
+  ![docker run](/assets/images/frontend-run.png)  
+  <br>
+  This command will run the Docker image for the ReactJs server on port 3000. You should be able to access the ReactJs server at http://localhost:3000.
+
+
+2. Push the Docker image to the Docker Hub repository using the following command:
+  
+  ```bash 
+  docker push <DockerHubUsername>/client
+  ```
+  This command will push the Docker image to the Docker Hub repository.
