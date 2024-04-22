@@ -52,12 +52,14 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 ```
 
 
-1. Now, change your current working directory to client
+1. Now, change your current working directory to client  
+<br>
 ```bash 
   cd client
 ``` 
 
-2. create a Dockerfile in the client folder
+2. create a Dockerfile in the client folder  
+<br>
 ```bash
   touch Dockerfile
 ```
