@@ -179,7 +179,10 @@ CMD ["npx", "serve", "-s", "build"]
   ```  
   <br>
 
-  ![docker run](/assets/images/frontend-run.png)  
+  ![docker run](/assets/images/frontend-run.png)    
+  <br>
+  ![frontend-browser](/assets/images/frontend-browser.png)  
+  
   <br>
   This command will run the Docker image for the ReactJs server on port 3000. You should be able to access the ReactJs server at http://localhost:3000.
 
