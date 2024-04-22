@@ -8,11 +8,73 @@ tags:
   - Deployment
 ---
 
-You'll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Hey everyone, In this blog post we will be deploying a full stack web application using Docker. The application will be split into three microservices. 
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+1. Frontend Container of ReactJs 
+2. Backend Container of NodeJs
+3. Database Container of MongoDB
 
-Jekyll also offers powerful support for code snippets:
+--------------------------------------------------
+
+### 1. Create a full stack application or use an existing one built on ReactJs, NodeJs and MongoDB.
+
+I have used an application of my own which you can clone from: [Stock Suggestion App](https://github.com/arpitmathur2412/GFG-HACK) or use any existing application you have. Just make sure it has the same tech-stack.
+
+This is the file structure of the application:
+
+```bash
+GFG-HACK/
+└── client/
+└── server/
+```
+
+### 2. Create a Dockerfile for each of the services.
+
+  #### 2.1 Dockerfile for ReactJs server at path client/Dockerfile
+  
+  Before creating the Dockerfile for the ReactJs server, make sure you have a build script in your package.json file. If not, add the following script to your package.json file:
+
+  ```json
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+  ```
+
+
+  
+  ```Dockerfile
+  # Use an official Node.js runtime as the base image
+  FROM node:16
+
+  # Set the working directory inside the container
+  WORKDIR /app
+
+  # Copy package.json and package-lock.json to the working directory
+  COPY package*.json ./
+
+  # Install the project dependencies
+  RUN npm install
+
+  # Copy the rest of the frontend code to the working directory
+  COPY . .
+
+  # Build the React app for production
+  RUN npm run build
+
+
+  # Expose the port on which your frontend app will run (typically 80 for HTTP)
+  EXPOSE 3000
+
+  # Serve the built React app using a simple web server
+  CMD ["npx", "serve", "-s", "build"]
+
+  ```
+
+
+
 
 ```ruby
 def print_hi(name)
@@ -21,9 +83,3 @@ end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
