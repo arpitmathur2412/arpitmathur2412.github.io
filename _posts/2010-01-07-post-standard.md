@@ -33,6 +33,15 @@ GFG-HACK/
 └── server/
 ```
 
+#### 3. Create a repository on Docker Hub to store your Docker images.
+
+Go to Docker Hub and create a new repository to store your Docker images. You can create a public or private repository depending on your requirements. Once you have created the repository, note down the repository name as we will need it later to push our Docker images to the repository.
+
+This is what your repository should look like:
+![Docker Hub](/assets/images/image.png)  
+<br>
+
+
 #### 2. Create a Dockerfile for each of the services.
 
 Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Docker image is a lightweight, standalone, and executable package of software that includes everything needed to run an application. The Dockerfile contains instructions to build the image, such as the base image, working directory, dependencies, and commands to run the application.
@@ -112,5 +121,27 @@ EXPOSE 3000
 <br>
 ```Dockerfile
 CMD ["npx", "serve", "-s", "build"]
-````
+````  
+<br>
+**This is what your final Dockerfile should look like:**
+
+```Dockerfile
+FROM node:16
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npx", "serve", "-s", "build"]
+```  
+<br>
+
 
