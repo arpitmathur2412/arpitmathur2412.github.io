@@ -201,62 +201,81 @@ CMD ["npx", "serve", "-s", "build"]
 
 
 
-**3.2 Dockerfile for NodeJs server**  
+**3.2 Creating Dockerfile for NodeJs server**  
 <br>
 
-1. Change your current working directory to server
-  
-  ```bash
+1. Now, change your current working directory to client  
+<br>
+```bash 
   cd server
-  ```
+``` 
 
-2. Create a Dockerfile in the server folder
-  
-  ```bash
+2. create a Dockerfile in the client folder  
+<br>
+```bash
   touch Dockerfile
-  ```
+```
 
 **Open the Dockerfile in a text editor of your choice and follow the below steps:**
 
-- Use the official Node.js image as the base image.
-    
-    ```Dockerfile
-    FROM node:16
-    ```
+- Use the official Node.js image as the base image.  
+<br>
+```Dockerfile
+FROM node:16
+```
 
-- Set the working directory inside the container.
-    
-    ```Dockerfile
-    WORKDIR /app
-    ```
+- Set the working directory inside the container.  
+<br>
+````Dockerfile
+WORKDIR /app
+````
 
-- Copy package.json and package-lock.json to the working directory.
-    
-    ```Dockerfile
-    COPY package*.json ./
-    ```
+- Copy package.json and package-lock.json to the working directory.  
+<br>
+````Dockerfile
+COPY package*.json ./
+````
 
-- Install the project dependencies.
-    
-    ```Dockerfile
-    RUN npm install
-    ```
+- Install the project dependencies.  
+<br>
+````Dockerfile
+RUN npm install
+````
 
-- Copy the rest of the backend code to the working directory.
-    
-    ```Dockerfile
-    COPY . .
-    ```
+- Copy the rest of the frontend code to the working directory.  
+<br>
+````Dockerfile
+COPY . .
+````
 
-- Expose the port on which your backend app will run.
-    
-    ```Dockerfile
-    EXPOSE 5000
-    ```
+- Expose the port on which your frontend app will run.  
+<br>
+````Dockerfile
+EXPOSE 5000
+````
 
-- Start the Node.js server.
-    
-    ```Dockerfile
-    CMD ["nodemon", "index.js"]
-    ```
-    
+- Serve the built React app using a simple web server.  
+<br>
+```Dockerfile
+CMD ["npm", "start"]
+````  
+<br>
+**This is what your final Dockerfile should look like:**
+
+```Dockerfile
+FROM node:16
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["npm", "start"]
+```  
+<br>
+
