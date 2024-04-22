@@ -35,7 +35,7 @@ GFG-HACK/
 
 
 
-*** 2.1 Dockerfile for ReactJs server at path client/Dockerfile ***
+**2.1 Dockerfile for ReactJs server at path client/Dockerfile**
   
 
 Before creating the Dockerfile for the ReactJs server, make sure you have a build script in your package.json file. If not, add the following script to your package.json file:
