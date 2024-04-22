@@ -14,7 +14,6 @@ Hey everyone, In this blog post we will be deploying a full stack web applicatio
 2. Backend Container of NodeJs
 3. Database Container of MongoDB
 
---------------------------------------------------
 
 ### 1. Create a full stack application or use an existing one built on ReactJs, NodeJs and MongoDB.
 
@@ -75,3 +74,11 @@ Next, create a ```Dockerfile``` in the client folder with the following content
   CMD ["npx", "serve", "-s", "build"]
 
   ````
+
+```ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+```
