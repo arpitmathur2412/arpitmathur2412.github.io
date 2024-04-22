@@ -62,6 +62,8 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
   touch Dockerfile
 ```
 
+<br>
+
 **Open the Dockerfile in a text editor of your choice and follow the below steps:**
 
 - Use the official Node.js image as the base image.
@@ -70,37 +72,37 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 FROM node:16
 ```
 
-- Set the working directory inside the container.
+- Set the working directory inside the container.  
 
 ````Dockerfile
 WORKDIR /app
 ````
 
-- Copy package.json and package-lock.json to the working directory.
+- Copy package.json and package-lock.json to the working directory.  
 
 ````Dockerfile
 COPY package*.json ./
 ````
 
-- Install the project dependencies.
+- Install the project dependencies.  
 
 ````Dockerfile
 RUN npm install
 ````
 
-- Copy the rest of the frontend code to the working directory.
+- Copy the rest of the frontend code to the working directory.  
 
 ````Dockerfile
 COPY . .
 ````
 
-- Build the React app for production.
+- Build the React app for production.  
 
 ````Dockerfile
 RUN npm run build
 ````
 
-- Expose the port on which your frontend app will run.
+- Expose the port on which your frontend app will run.  
 
 ````Dockerfile
 EXPOSE 3000
