@@ -23,7 +23,7 @@ Docker also provides tools for managing containers, such as Docker Compose, whic
 #### 1. Create a full stack application or use an existing one built on ReactJs, NodeJs and MongoDB.
 
 
-I have used an application of my own which you can clone from: [Stock Suggestion App](https://github.com/arpitmathur2412/GFG-HACK) or use any existing application you have. Just make sure it has the same tech-stack.
+I have used an application of my own which you can clone from [Stock Suggestion App](https://github.com/arpitmathur2412/GFG-HACK) or use any existing application you have. Just make sure it has the same tech-stack.
 
 This is the file structure of our application:
 
@@ -33,21 +33,23 @@ GFG-HACK/
 └── server/
 ```
 
-#### 3. Create a repository on Docker Hub to store your Docker images.
+#### 2. Create a repository on Docker Hub to store your Docker images.
 
 Go to Docker Hub and create a new repository to store your Docker images. You can create a public or private repository depending on your requirements. Once you have created the repository, note down the repository name as we will need it later to push our Docker images to the repository.
 
-This is what your repository should look like:
+This is what your repository should look like  
+<br>
 ![Docker Hub](/assets/images/image.png)  
 <br>
 
 
-#### 2. Create a Dockerfile for each of the services.
+#### 3. Create a Dockerfile for each of the services.
 
-Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Docker image is a lightweight, standalone, and executable package of software that includes everything needed to run an application. The Dockerfile contains instructions to build the image, such as the base image, working directory, dependencies, and commands to run the application.
+Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Docker image is a lightweight, standalone, and executable package of software that includes everything needed to run an application. The Dockerfile contains instructions to build the image, such as the base image, working directory, dependencies, and commands to run the application.  
+<br>
 
 
-**2.1 Dockerfile for ReactJs server at path client/Dockerfile**
+**3.1 Dockerfile for ReactJs server at path client/Dockerfile**
 
 Before creating the Dockerfile for the ReactJs server, make sure you have a build script in your package.json file. If not, add the following script to your package.json file:
 
@@ -58,8 +60,8 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 "test": "react-scripts test",
 "eject": "react-scripts eject"
 }
-```
-
+```  
+<br>
 
 1. Now, change your current working directory to client  
 <br>
