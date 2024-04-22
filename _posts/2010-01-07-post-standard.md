@@ -15,7 +15,10 @@ Hey everyone, In this blog post we will be deploying a full stack web applicatio
 2. Backend Container of NodeJs
 3. Database Container of MongoDB
 
+Before we start with the deployment, let's understand what Docker is and why we need it.
+Docker is a platform that allows you to develop, test, and deploy applications in containers. Containers are lightweight, standalone, and executable packages of software that include everything needed to run an application: code, runtime, system tools, system libraries, and settings. Containers are isolated from each other and from the underlying host, which means that they can run the same application on different environments without any changes. This makes it easy to deploy applications in a consistent and reproducible way. 
 
+Docker also provides tools for managing containers, such as Docker Compose, which allows you to define and run multi-container applications. In this blog, we will be using Docker Compose to define and run our full stack web application. Let's start
 
 #### 1. Create a full stack application or use an existing one built on ReactJs, NodeJs and MongoDB.
 
@@ -30,13 +33,12 @@ GFG-HACK/
 └── server/
 ```
 
-
 #### 2. Create a Dockerfile for each of the services.
 
+Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Docker image is a lightweight, standalone, and executable package of software that includes everything needed to run an application. The Dockerfile contains instructions to build the image, such as the base image, working directory, dependencies, and commands to run the application.
 
 
 **2.1 Dockerfile for ReactJs server at path client/Dockerfile**
-  
 
 Before creating the Dockerfile for the ReactJs server, make sure you have a build script in your package.json file. If not, add the following script to your package.json file:
 
@@ -51,65 +53,61 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 
 
 1. Now, change your current working directory to client
-
-  ```bash 
+```bash 
   cd client
-  ``` 
+``` 
 
 2. create a Dockerfile in the client folder
-
-  ```bash
+```bash
   touch Dockerfile
-  ```
-
+```
 3. Open the Dockerfile in a text editor of your choice and follow the below steps:
 
+  - Use the official Node.js image as the base image.
+    
+```Dockerfile
+    FROM node:16
+```
 
-  1. Use the official Node.js image as the base image.
+  - Set the working directory inside the container.
 
-      ````Dockerfile
-      FROM node:16
-      ````
-
-  2. Set the working directory inside the container.
-
-    ````Dockerfile
+````Dockerfile
     WORKDIR /app
-    ````
+````
 
-  3. Copy package.json and package-lock.json to the working directory.
+  - Copy package.json and package-lock.json to the working directory.
 
-    ````Dockerfile
+````Dockerfile
     COPY package*.json ./
-    ````
+````
 
-  4. Install the project dependencies.
+  - Install the project dependencies.
 
-    ````Dockerfile
+````Dockerfile
     RUN npm install
-    ````
+````
 
-  5. Copy the rest of the frontend code to the working directory.
+  - Copy the rest of the frontend code to the working directory.
 
-    ````Dockerfile
+````Dockerfile
     COPY . .
-    ````
+````
 
-  6. Build the React app for production.
+  - Build the React app for production.
 
-    ````Dockerfile
+````Dockerfile
     RUN npm run build
-    ````
+````
 
-  7. Expose the port on which your frontend app will run.
+  - Expose the port on which your frontend app will run.
 
-    ````Dockerfile
-    EXPOSE 3000
-    ````
+````Dockerfile
+EXPOSE 3000
+````
 
-  8. Serve the built React app using a simple web server. 
+  - Serve the built React app using a simple web server. 
 
-    ```Dockerfile
+```Dockerfile
     CMD ["npx", "serve", "-s", "build"]
-    ````
+````
 
