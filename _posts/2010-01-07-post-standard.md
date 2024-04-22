@@ -1,11 +1,12 @@
 ---
-title: "Deploying a three-tier web application with Docker"
-date: 2024-04-22T20:38:30-04:00
+title: "Post: Standard"
+excerpt_separator: "<!--more-->"
 categories:
-  - blog
+  - Blog
 tags:
-  - Docker
-  - Deployment
+  - Post Formats
+  - readability
+  - standard
 ---
 
 Hey everyone, In this blog post we will be deploying a full stack web application using Docker. The application will be split into three microservices. 
@@ -48,7 +49,7 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 
 Next, create a ```Dockerfile``` in the client folder with the following content
 
-  ``Dockerfile
+  ````Dockerfile
   # Use an official Node.js runtime as the base image
   FROM node:16
 
@@ -73,7 +74,7 @@ Next, create a ```Dockerfile``` in the client folder with the following content
   # Serve the built React app using a simple web server
   CMD ["npx", "serve", "-s", "build"]
 
-  ```
+  ````
 
 ```ruby
 def print_hi(name)
