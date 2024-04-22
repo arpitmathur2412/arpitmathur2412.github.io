@@ -187,6 +187,76 @@ CMD ["npx", "serve", "-s", "build"]
 2. Push the Docker image to the Docker Hub repository using the following command:
   
   ```bash 
-  docker push <DockerHubUsername>/client
+  docker push <DockerHubUsername>/<RepositoryName>:client
+  ```  
+  <br>
+
+  ![docker frontend](/assets/images/frontend_push.png)  
+  <br>
+
+  This command will push the Docker image to the Docker Hub repository. You can check the Docker Hub repository to see if the image has been pushed successfully.  
+  <br>
+
+  ![frontend_push_check](/assets/images/frontend_push_check.png)
+
+
+
+**3.2 Dockerfile for NodeJs server**  
+<br>
+
+1. Change your current working directory to server
+  
+  ```bash
+  cd server
   ```
-  This command will push the Docker image to the Docker Hub repository.
+
+2. Create a Dockerfile in the server folder
+  
+  ```bash
+  touch Dockerfile
+  ```
+
+**Open the Dockerfile in a text editor of your choice and follow the below steps:**
+
+- Use the official Node.js image as the base image.
+    
+    ```Dockerfile
+    FROM node:16
+    ```
+
+- Set the working directory inside the container.
+    
+    ```Dockerfile
+    WORKDIR /app
+    ```
+
+- Copy package.json and package-lock.json to the working directory.
+    
+    ```Dockerfile
+    COPY package*.json ./
+    ```
+
+- Install the project dependencies.
+    
+    ```Dockerfile
+    RUN npm install
+    ```
+
+- Copy the rest of the backend code to the working directory.
+    
+    ```Dockerfile
+    COPY . .
+    ```
+
+- Expose the port on which your backend app will run.
+    
+    ```Dockerfile
+    EXPOSE 5000
+    ```
+
+- Start the Node.js server.
+    
+    ```Dockerfile
+    CMD ["nodemon", "index.js"]
+    ```
+    
