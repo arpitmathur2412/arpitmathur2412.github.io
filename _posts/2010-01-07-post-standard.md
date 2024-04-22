@@ -62,18 +62,16 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
   touch Dockerfile
 ```
 
-<br>
-
 **Open the Dockerfile in a text editor of your choice and follow the below steps:**
 
-- Use the official Node.js image as the base image.
-    
+Use the official Node.js image as the base image.
+<br>
 ```Dockerfile
 FROM node:16
 ```
 
 - Set the working directory inside the container.  
-
+<br>
 ````Dockerfile
 WORKDIR /app
 ````
