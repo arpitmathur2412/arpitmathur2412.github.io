@@ -28,6 +28,9 @@ GFG-HACK/
 └── server/
 ```
 
+The client folder contains the ReactJs frontend code and the server folder contains the NodeJs backend code.
+
+
 ### 2. Create a Dockerfile for each of the services.
 
   #### 2.1 Dockerfile for ReactJs server at path client/Dockerfile
@@ -43,8 +46,8 @@ GFG-HACK/
   }
   ```
 
+  Now, create a Dockerfile in the client folder with the following content
 
-  
   ```Dockerfile
   # Use an official Node.js runtime as the base image
   FROM node:16
@@ -64,8 +67,7 @@ GFG-HACK/
   # Build the React app for production
   RUN npm run build
 
-
-  # Expose the port on which your frontend app will run (typically 80 for HTTP)
+  # Expose the port on which your frontend app will run
   EXPOSE 3000
 
   # Serve the built React app using a simple web server
