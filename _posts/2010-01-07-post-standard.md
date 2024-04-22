@@ -64,7 +64,7 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 
 **Open the Dockerfile in a text editor of your choice and follow the below steps:**
 
-- Use the official Node.js image as the base image.
+- Use the official Node.js image as the base image.  
 <br>
 ```Dockerfile
 FROM node:16
@@ -106,7 +106,7 @@ RUN npm run build
 EXPOSE 3000
 ````
 
-- Serve the built React app using a simple web server. 
+- Serve the built React app using a simple web server.  
 <br>
 ```Dockerfile
 CMD ["npx", "serve", "-s", "build"]
