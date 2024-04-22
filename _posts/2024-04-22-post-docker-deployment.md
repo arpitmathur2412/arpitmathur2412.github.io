@@ -48,7 +48,7 @@ Before creating the Dockerfile for the ReactJs server, make sure you have a buil
 
 Next, create a ```Dockerfile``` in the client folder with the following content
 
-  ```Dockerfile
+  ``Dockerfile
   # Use an official Node.js runtime as the base image
   FROM node:16
 
@@ -73,7 +73,7 @@ Next, create a ```Dockerfile``` in the client folder with the following content
   # Serve the built React app using a simple web server
   CMD ["npx", "serve", "-s", "build"]
 
-  ````
+  ```
 
 ```ruby
 def print_hi(name)
