@@ -327,4 +327,6 @@ Now we have our client and server images pushed to the Docker Hub repository and
 ```bash
 docker pull mongo:latest
 ```
-![mongo pull](image.png)
+![mongo pull](/assets/images/mongo-pull.png)
+
+Now that we have the images of all three 
