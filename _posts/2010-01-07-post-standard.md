@@ -187,7 +187,7 @@ CMD ["npx", "serve", "-s", "build"]
   This command will run the Docker image for the ReactJs server on port 3000. You should be able to access the ReactJs server at http://localhost:3000.
 
 
-2. Push the Docker image to the Docker Hub repository using the following command:
+4. Push the Docker image to the Docker Hub repository using the following command:
   
   ```bash 
   docker push <DockerHubUsername>/<RepositoryName>:client
@@ -280,5 +280,40 @@ EXPOSE 5000
 
 CMD ["npm", "start"]
 ```  
+<br>
+
+
+**Now we will build the Docker image from the created Dockerfile for the server and push it to the Docker Hub repository, follow the below steps carefully**
+
+- Build the Docker image using the following command:
+  
+```bash 
+docker build -t <DockerHubUsername>/<RepositoryName>:server .
+```  
+<br>
+![docker build server](/assets/images/docker_build_server.png)    
+<br>
+
+replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
+<br>
+This command will build the Docker image for the Nodejs server using the Dockerfile in your local repository.
+
+
+**Note**: We will not run the server image as it requires a connection to the MongoDB database. We will run the server image after creating the MongoDB image.
+
+- Push the Docker image to the Docker Hub repository using the following command:
+  
+```bash 
+  docker push <DockerHubUsername>/<RepositoryName>:server
+```  
+<br>
+
+![docker server push](/assets/images/docker_server_push.png)  
+<br>
+
+This command will push the Docker image to the Docker Hub repository. You can check the Docker Hub repository to see if the image has been pushed successfully.  
+<br>
+
+![server_push_check](/assets/images/server_push_check.png)  
 <br>
 
