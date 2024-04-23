@@ -158,7 +158,7 @@ CMD ["npx", "serve", "-s", "build"]
   ![docker build for client](/assets/images/client-build.png)  
   <br>
 
-  replace <DockerHubUsername> with your Docker Hub username and <RepositoryName> with the repository name of the created repository in step 2.   
+  replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
   <br>
   This command will build the Docker image for the ReactJs server using the Dockerfile in the client folder.
 
@@ -308,12 +308,12 @@ This command will build the Docker image for the Nodejs server using the Dockerf
 ```  
 <br>
 
-![docker server push](/assets/images/docker_server_push.png)  
+![docker server push](/assets/images/docker_server_push_.png)  
 <br>
 
 This command will push the Docker image to the Docker Hub repository. You can check the Docker Hub repository to see if the image has been pushed successfully.  
 <br>
-
+![alt text](image.png)
 ![server_push_check](/assets/images/server_push_check.png)  
 <br>
 
