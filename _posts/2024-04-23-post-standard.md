@@ -366,7 +366,11 @@ You can get the container IP using  ```` docker inspect <CONTAINER_NAME>````
 ![network inspect](/assets/images/inspect.png)  
 <br>
 
-After this, use this container IP or container ID in the the mongoose connection string and build your server image and run it again. Attach the network to the server container too to allow communication between server and database. Note: You do not have to connect the network to the client container
+After this, use this container IP or container ID in the the mongoose connection string and build your server image and run it again. Attach the network to the server container too to allow communication between server and database. Note: You do not have to connect the network to the client container 
+````bash
+docker run -dp 5000:5000 <DockerHubUsername>/<RepositoryName>:server
+````  
+<br>
 
 ![server-net](/assets/images/server-net.png)  
 
