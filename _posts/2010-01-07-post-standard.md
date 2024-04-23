@@ -327,6 +327,81 @@ Now we have our client and server images pushed to the Docker Hub repository and
 ```bash
 docker pull mongo:latest
 ```
-![mongo pull](/assets/images/mongo-pull.png)
+![mongo pull](/assets/images/mongo-pull.png)  
+<br>
 
-Now that we have the images of all three 
+
+### 4. Run our application with the created docker images
+
+Now that we have all our images ready, we can run our application by running all the docker containers and exposing the ports on which they will run so all three microservices can communicate with each other.
+    
+<br>
+
+Follow the below commands to run your containers:  
+<br>
+
+```bash
+docker run -dp 3000:3000 <DockerHubUsername>/<RepositoryName>:client
+docker run -dp 5000:5000 <DockerHubUsername>/<RepositoryName>:server
+docker run -dp 27017:27017 mongo
+```
+<br>
+
+Now that we have created the containers, we need to create a network that we will connect to the server and the mongo container. We will do this so that we can get the IP of the mongo container and use it in the connection string in ````mongoose.connect('mongodb:<CONTAINER_IP>:27017:<DB_NAME>') ```` 
+
+This is how your create a docker network:  
+<br>
+
+![create network](/assets/images/create_net.png)  
+<br>
+
+Now you attach this network to the mongodb container:  
+<br>
+
+```` docker network connect <NETWORK_NAME> <CONTAINER_ID````  
+<br>   
+
+![mongo-connect](/assets/images/mongo-connect.png)  
+<br>
+
+You can get the container IP using  ```` docker network inspect <CONTAINER_NAME>````  
+<br>
+
+![network inspect](/assets/images/inspect.png)  
+<br>
+
+
+After this, use this container IP in the the mongoose connection string and rebuild your server image and run it again. Attach the network to the server container too to allow communication between server and database. Note: You do not have to connect the network to the client container
+
+![server-net](/assets/images/server-net.png)  
+
+<br>
+![run_container](/assets/images/run_container.png)  
+<br>
+
+**Once all the containers are up and running, you can test the app at** ```` http://localhost:3000 ````
+
+This is how the website will look like:  
+<br>
+
+![home](/assets/images/frontend-browser.png)  
+<br>  
+![about_us](/assets/images/about.png)  
+<br>
+![final](/assets/images/stock.png)  
+<br>
+
+
+**We have successfully deployed our three-tier MERN stack application with docker!**
+
+#### Conclusion:  
+<br>
+
+By containerizing your MERN stack application with Docker and leveraging Docker networks, you've achieved a portable, efficient, and scalable development environment. This approach streamlines development workflows, simplifies collaboration, and paves the way for seamless deployment to production.
+
+Remember, this is just the beginning!  Explore further optimizations for production environments, such as volume management for persistent data storage and integrating with container orchestration tools like Kubernetes. As your MERN application grows, Docker will continue to be a valuable asset in your development toolbox.
+
+
+
+
+
