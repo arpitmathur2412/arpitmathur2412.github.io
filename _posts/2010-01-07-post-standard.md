@@ -344,7 +344,7 @@ docker run -dp 5000:5000 <DockerHubUsername>/<RepositoryName>:server
 docker run -dp 27017:27017 mongo
 ```
 <br>
-Note: we have used -d tag so that the containers can run in the background without blocking the terminal. 
+Note: we have used -d tag so that the containers can run in the background without blocking the terminal 
 
 Now that we have created the containers, we need to create a network that we will connect to the server and the mongo container. We will do this so that we can get the IP of the mongo container and use it in the connection string as ````mongoose.connect('mongodb:<CONTAINER_IP>:27017:<DB_NAME>') ```` 
 
@@ -354,7 +354,8 @@ This is how your create a docker network:
 ![create network](/assets/images/create_net.png)  
 <br>
 
-Now you attach this network to the mongodb container: ```` docker network connect <NETWORK_NAME> <CONTAINER_ID````  
+Now you attach this network to the mongodb container:
+```` docker network connect <NETWORK_NAME> <CONTAINER_ID>````  
 <br>   
 
 ![mongo-connect](/assets/images/mongo-connect.png)  
@@ -363,9 +364,10 @@ Now you attach this network to the mongodb container: ```` docker network connec
 You can get the container IP using  ```` docker inspect <CONTAINER_NAME>````  
 <br>
 
-![network inspect](/assets/images/inspect.png)
+![network inspect](/assets/images/inspect.png)  
+<br>
 
-After this, use this container IP in the the mongoose connection string and rebuild your server image and run it again. Attach the network to the server container too to allow communication between server and database. Note: You do not have to connect the network to the client container
+After this, use this container IP or container ID in the the mongoose connection string and build your server image and run it again. Attach the network to the server container too to allow communication between server and database. Note: You do not have to connect the network to the client container
 
 ![server-net](/assets/images/server-net.png)  
 
