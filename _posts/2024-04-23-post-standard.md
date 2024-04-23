@@ -1,5 +1,5 @@
 ---
-title: "Deploying a Full Stack Web Application using Docker"
+title: "Deploying a Three-tier Web Application using Docker"
 excerpt_separator: "<!--more-->"
 categories:
   - Blog
