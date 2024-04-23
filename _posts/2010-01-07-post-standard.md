@@ -158,7 +158,7 @@ CMD ["npx", "serve", "-s", "build"]
   ![docker build for client](/assets/images/client-build.png)  
   <br>
 
-  replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
+  Replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
   <br>
   This command will build the Docker image for the ReactJs server using the Dockerfile in the client folder.
 
@@ -213,7 +213,7 @@ CMD ["npx", "serve", "-s", "build"]
   cd server
 ``` 
 
-2. create a Dockerfile in the client folder  
+2. Create a Dockerfile in the client folder  
 <br>
 ```bash
   touch Dockerfile
@@ -294,7 +294,7 @@ docker build -t <DockerHubUsername>/<RepositoryName>:server .
 ![docker build server](/assets/images/docker_build_server.png)    
 <br>
 
-replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
+Replace ```<DockerHubUsername>``` with your Docker Hub username and ```<RepositoryName>``` with the repository name of the created repository in step 2.   
 <br>
 This command will build the Docker image for the Nodejs server using the Dockerfile in your local repository.
 
