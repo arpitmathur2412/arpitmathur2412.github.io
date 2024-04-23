@@ -340,7 +340,6 @@ Follow the below commands to run your containers:
 
 ```bash
 docker run -dp 3000:3000 <DockerHubUsername>/<RepositoryName>:client
-docker run -dp 5000:5000 <DockerHubUsername>/<RepositoryName>:server
 docker run -dp 27017:27017 mongo
 ```
 <br>
@@ -358,7 +357,7 @@ Now you attach this network to the mongodb container:
 ```` docker network connect <NETWORK_NAME> <CONTAINER_ID>````  
 <br>   
 
-![mongo-connect](/assets/images/mongo-connect.png)  
+![mongo-connect-net](/assets/images/mongo-net-connect.png)
 <br>
 
 You can get the container IP using  ```` docker inspect <CONTAINER_NAME>````  
