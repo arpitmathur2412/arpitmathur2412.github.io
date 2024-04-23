@@ -312,8 +312,19 @@ This command will build the Docker image for the Nodejs server using the Dockerf
 <br>
 
 This command will push the Docker image to the Docker Hub repository. You can check the Docker Hub repository to see if the image has been pushed successfully.  
-<br>
-![alt text](image.png)
+<br>  
+
 ![server_push_check](/assets/images/server_push_check.png)  
 <br>
 
+
+Now we have our client and server images pushed to the Docker Hub repository and ready to run. We now will pull an already created MongoDB image from the Docker Hub and run it.
+
+- **3.3 Pulling MongoDB image from Docker Hub**
+
+- Pull the MongoDB image from the Docker Hub using the following command:
+  
+```bash
+docker pull mongo:latest
+```
+![mongo pull](image.png)
